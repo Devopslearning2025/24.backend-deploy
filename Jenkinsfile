@@ -7,16 +7,18 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
+    parameters {
+        string(name: 'appVersion', defaultValue: '1.0.0', description: 'what is the application version?')
+    }
     environment {
         def appVersion = '' //variable declaration
+        nexusUrl = 'http://3.81.33.200:8081'
     }
     stages {
         stage("read the version") {
             steps {
                 script {
-                    def packageJson = readJSON file: 'package.json'
-                    appVersion = packageJson.version
-                    echo "APplication version : $appVersion"
+                    echo "Application version: ${params.appVersion}"
                 }
             }
     }  
