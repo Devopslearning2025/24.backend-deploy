@@ -20,6 +20,7 @@ variable "zone_name" {
     default = "devopslearning2025.online"
 }
 
+#created this part of Jenkins CICD
 variable "app_Version" {
     
 }
