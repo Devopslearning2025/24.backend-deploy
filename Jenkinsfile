@@ -26,24 +26,26 @@ pipeline {
     stage("init") {
         steps {
             script {
-                cd 
+                cd terraform
+                terraform init
             }
         }
     } 
     stage("plan") {
         steps {
             script {
-                
+                cd terraform
+                terraform plan
             }
         }
     } 
-    stage("Apply") {
-        steps {
-            script {
+    // stage("Apply") {
+    //     steps {
+    //         script {
                 
-            }
-        }
-    }   
+    //         }
+    //     }
+    // }   
     post { 
         always { 
             echo 'I will always say Hello again!'
