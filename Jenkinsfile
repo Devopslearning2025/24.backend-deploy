@@ -22,22 +22,22 @@ pipeline {
                 }
             }
         }
-        // stage("init") {
-        //     steps {
-        //         sh """
-        //             cd terraform
-        //             terraform init -reconfigure
-        //         """
-        //     }
-        // } 
-        // stage("plan") {
-        //     steps {
-        //         sh """
-        //             cd terraform
-        //             terraform plan
-        //         """
-        //     }
-        // } 
+        stage("init") {
+            steps {
+                sh """
+                    cd terraform
+                    terraform init -reconfigure
+                """
+            }
+        } 
+        stage("plan") {
+            steps {
+                sh """
+                    cd terraform
+                    terraform plan
+                """
+            }
+        } 
     }
 
     post { 
