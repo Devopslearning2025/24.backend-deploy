@@ -12,7 +12,7 @@ pipeline {
     }
     environment {
         def appVersion = '' //variable declaration
-        nexusUrl = 'http://3.81.33.200:8081'
+        nexusUrl = 'nexus.devopslearning2025.online:8081'
     }
     stages {
         stage("read the version") {
@@ -22,7 +22,28 @@ pipeline {
                 }
             }
         }
-    }  
+    }
+    stage("init") {
+        steps {
+            script {
+                cd 
+            }
+        }
+    } 
+    stage("plan") {
+        steps {
+            script {
+                
+            }
+        }
+    } 
+    stage("Apply") {
+        steps {
+            script {
+                
+            }
+        }
+    }   
     post { 
         always { 
             echo 'I will always say Hello again!'
