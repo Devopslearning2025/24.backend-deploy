@@ -22,28 +22,28 @@ pipeline {
                 }
             }
         }
-        stage("init") {
-            steps {
-                sh """
-                    cd terraform
-                    terraform init -reconfigure
-                """
-            }
-        } 
-        stage("plan") {
-            steps {
-                sh """
-                    cd terraform
-                    terraform plan
-                """
-            }
-        } 
+        // stage("init") {
+        //     steps {
+        //         sh """
+        //             cd terraform
+        //             terraform init -reconfigure
+        //         """
+        //     }
+        // } 
+        // stage("plan") {
+        //     steps {
+        //         sh """
+        //             cd terraform
+        //             terraform plan
+        //         """
+        //     }
+        // } 
     }
 
     post { 
         always { 
             echo 'I will always say Hello again!'
-            deleteDir()
+            //deleteDir()
         }
         success {
             echo 'i will run the pipeline is usccess'
