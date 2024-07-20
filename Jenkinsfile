@@ -37,13 +37,21 @@ pipeline {
                     terraform plan -var="app_Version=${params.appVersion}"
                 """
             }
-        } 
+        }
+        stage("deploy") {
+            steps {
+                sh """
+                    cd terraform
+                    terraform apply -auto-approve -var="app_Version=${params.appVersion}"
+                """
+            }
+        }         
     }
 
     post { 
         always { 
             echo 'I will always say Hello again!'
-            //deleteDir()
+            deleteDir()
         }
         success {
             echo 'i will run the pipeline is usccess'
