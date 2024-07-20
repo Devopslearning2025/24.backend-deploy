@@ -22,30 +22,24 @@ pipeline {
                 }
             }
         }
+        stage("init") {
+            steps {
+                sh """
+                    cd terraform
+                    terraform init
+                """
+            }
+        } 
+        stage("plan") {
+            steps {
+                sh """
+                    cd terraform
+                    terraform plan
+                """
+            }
+        } 
     }
-    stage("init") {
-        steps {
-            sh """
-                cd terraform
-                terraform init
-            """
-        }
-    } 
-    stage("plan") {
-        steps {
-            sh """
-                cd terraform
-                terraform plan
-            """
-        }
-    } 
-    // stage("Apply") {
-    //     steps {
-    //         script {
-                
-    //         }
-    //     }
-    // }   
+
     post { 
         always { 
             echo 'I will always say Hello again!'
