@@ -25,18 +25,18 @@ pipeline {
     }
     stage("init") {
         steps {
-            script {
+            sh """
                 cd terraform
                 terraform init
-            }
+            """
         }
     } 
     stage("plan") {
         steps {
-            script {
+            sh """
                 cd terraform
                 terraform plan
-            }
+            """
         }
     } 
     // stage("Apply") {
